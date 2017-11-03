@@ -265,5 +265,9 @@ def main_parameterize(arguments=None):
 
 if __name__ == "__main__":
 
+    # HACK: Turn off buffering of stdout and stderr, so the order of text is preserved.
+    #       It is a temporary solution, while we get rid of all "print" commands.
+    os.environ['PYTHONUNBUFFERED'] = 'yes'
+
     args = sys.argv[1:] if len(sys.argv) > 1 else ['-h']
     main_parameterize(arguments=args)
